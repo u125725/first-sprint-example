@@ -17,6 +17,7 @@ import {
   Checkbox,
   FormGroup
 } from "@material-ui/core";
+import Upload from './Upload'
 import Calendar from './Calendar'
 import Dropdown from './Dropdown'
 import Dropdown2 from './Dropdown2'
@@ -50,9 +51,15 @@ export default function Form() {
 
   const [question10A, setQuestion10A] = useState('');
   const [question10b, setQuestion10B] = useState('');
+ const [question3, setQuestion3] = useState('');
   const handleChange = (event) => {
     setQuestion10A(event.target.value);
   };
+
+    const handleChanges = (event) => {
+      setQuestion3(event.target.value);
+  };
+
 
   // const handleChange = (event) => {
   //   setQuestion10B(event.target.value); };
@@ -128,7 +135,7 @@ export default function Form() {
   <h4 style={{textAlign: "left" }}><Calendar /></h4>
   <br></br>
   <br></br>
-  
+  <h4 style={{textAlign: "left" }}><Upload /></h4>
   
           </form>
 
@@ -136,21 +143,48 @@ export default function Form() {
     </Paper>
         
     <Paper elevation={3} style={paperStyle}>
-        <h4 style={{ color: "firebrick", textAlign: "left" }}>
-          3. School district or Private School:
+        <h4 style={{ color: "firebrick", textalign: "left" }}>
+        3. School district or Private School:
         </h4>
+        <FormControl fullWidth>
+          <InputLabel id="question3-label">Select a school district:</InputLabel>
+          <Select
+            labelId="question3-label"
+            id="question3"
+            value={question3}
+            label="Select a school district:"
+            onChange={handleChanges}
+          >
+            <MenuItem value="Hazelwood West">Hazelwood West</MenuItem>
+            <MenuItem value="Hazelwood Central">Hazelwood Central</MenuItem>
+            <MenuItem value="Hazelwood East">Hazelwood East</MenuItem>
+            <MenuItem value="Pattonville">Pattonville</MenuItem>
+            <MenuItem value="Ferguson">Ferguson</MenuItem>
+            <MenuItem value="Riverview Gardens">Riverview Gardens</MenuItem>
+            <MenuItem value="Parkway North">Parkway North</MenuItem>
+            <MenuItem value="Ritenour">Ritenour</MenuItem>
+            <MenuItem value="Normandy">Normandy</MenuItem>
+            <MenuItem value="Parkway Central">Parkway Central</MenuItem>
+            <MenuItem value="Ladue">Ladue</MenuItem>
+            <MenuItem value="University City">University City</MenuItem>
+            <MenuItem value="Rockwood">Rockwood</MenuItem>
+            <MenuItem value="Clayton">Clayton</MenuItem>
+            <MenuItem value="Parkway South">Parkway South</MenuItem>
+            <MenuItem value="Kirkwood">Kirkwood</MenuItem>
+            <MenuItem value="Webster Groves">Webster Groves</MenuItem>
+            <MenuItem value="Brentwood">Brentwood</MenuItem>
+            <MenuItem value="Maplewood Richmond Heights">Maplewood Richmond Heights</MenuItem>
+            <MenuItem value="Valley Park">Valley Park</MenuItem>
+            <MenuItem value="Affton">Affton</MenuItem>
+            <MenuItem value="Bayless">Bayless</MenuItem>
+            <MenuItem value="Lindbergh">Lindbergh</MenuItem>
+            <MenuItem value="Hancock Place">Hancock Place</MenuItem>
+            <MenuItem value="Mehlville">Mehlville</MenuItem>
 
-        <form className={classes.root} noValidate autoComplete="off">
-          {/* <TextField
-            id="outlined-basic"
-            label="Enter the Name of the School District"
-            variant="outlined"
-            fullWidth
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          /> */}
-          <Dropdown />
-        </form>
+          </Select>
+          </FormControl>
+          
+          
 
 
 
@@ -173,7 +207,7 @@ export default function Form() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-       
+          
         </form>
 
         {/* <Button variant="contained" color="primary" onClick={handleClick}>
@@ -206,6 +240,7 @@ export default function Form() {
         </h4>
 
         <form className={classes.root} noValidate autoComplete="off"></form>
+        
         <FormControl>
           <RadioGroup row aria-labelledby="question5" name="questionFive">
             <FormControlLabel
@@ -668,4 +703,4 @@ export default function Form() {
       </Paper>
     </Container>
   );
-}
+      }
